@@ -1,30 +1,37 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:github_mobile/main.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('app shell shows four bottom navigation tabs', (
+    WidgetTester tester,
+  ) async {
+    await tester.pumpWidget(
+      const ProviderScope(child: GithubMobileApp()),
+    );
+    await tester.pumpAndSettle();
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Home tab is the initial location.
+    expect(find.text('Home Page'), findsOneWidget);
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+    // Switch to the Inbox tab.
+    await tester.tap(find.text('Inbox'));
+    await tester.pumpAndSettle();
+    expect(find.text('Inbox Page'), findsOneWidget);
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Switch to the Explore tab.
+    await tester.tap(find.text('Explore'));
+    await tester.pumpAndSettle();
+    expect(find.text('Explore Page'), findsOneWidget);
+
+    // Switch to the Copilot tab.
+    await tester.tap(find.text('Copilot'));
+    await tester.pumpAndSettle();
+    expect(find.text('Copilot Page'), findsOneWidget);
+
+    // Switching back to Home keeps the tab branch alive (state preserved).
+    await tester.tap(find.text('Home'));
+    await tester.pumpAndSettle();
+    expect(find.text('Home Page'), findsOneWidget);
   });
 }
