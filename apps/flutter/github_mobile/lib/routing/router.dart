@@ -6,6 +6,9 @@ import '../ui/copilot/widgets/copilot_screen.dart';
 import '../ui/explore/widgets/explore_screen.dart';
 import '../ui/home/widgets/home_screen.dart';
 import '../ui/inbox/widgets/inbox_screen.dart';
+import '../ui/search/view_models/search_viewmodel.dart';
+import '../ui/search/widgets/search_results_category_screen.dart';
+import '../ui/search/widgets/search_screen.dart';
 import 'routes.dart';
 
 /// Application router.
@@ -27,6 +30,20 @@ final routerProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: Routes.home,
                 builder: (context, state) => const HomeScreen(),
+              ),
+              GoRoute(
+                path: Routes.search,
+                builder: (context, state) => const SearchScreen(),
+              ),
+              GoRoute(
+                path: Routes.searchResultsCategory,
+                builder: (context, state) {
+                  final params = state.uri.queryParameters;
+                  return SearchResultsCategoryScreen(
+                    query: params['q'] ?? '',
+                    category: SearchCategory.fromName(params['type']),
+                  );
+                },
               ),
             ],
           ),

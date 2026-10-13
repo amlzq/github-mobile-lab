@@ -14,4 +14,13 @@ abstract final class Routes {
 
   /// Root tab: Copilot chat.
   static const String copilot = '/copilot';
+
+  /// Search page (pushed inside a tab branch, bottom nav preserved).
+  /// Hosts both the query-suggestion state and the combined 6-category
+  /// results preview.
+  static const String search = '/search';
+
+  /// Full result list for one category. Params: `q` (query),
+  /// `type` (SearchCategory name).
+  static const String searchResultsCategory = '/search/results/category';
 }

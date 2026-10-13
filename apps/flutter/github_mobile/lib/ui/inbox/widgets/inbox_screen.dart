@@ -10,8 +10,6 @@ class InboxScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO(inbox): replace with the real Inbox feature content.
-    return const Scaffold(
-      body: Center(child: Text('Inbox Page')),
-    );
+    return const Scaffold(body: Center(child: Text('Inbox Page')));
   }
 }

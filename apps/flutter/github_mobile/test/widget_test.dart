@@ -6,9 +6,7 @@ void main() {
   testWidgets('app shell shows four bottom navigation tabs', (
     WidgetTester tester,
   ) async {
-    await tester.pumpWidget(
-      const ProviderScope(child: GithubMobileApp()),
-    );
+    await tester.pumpWidget(const ProviderScope(child: GithubMobileApp()));
     await tester.pumpAndSettle();
 
     // Home tab is the initial location.

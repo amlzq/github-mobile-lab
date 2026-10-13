@@ -9,8 +9,6 @@ class CopilotScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO(copilot): replace with the real Copilot feature content.
-    return const Scaffold(
-      body: Center(child: Text('Copilot Page')),
-    );
+    return const Scaffold(body: Center(child: Text('Copilot Page')));
   }
 }

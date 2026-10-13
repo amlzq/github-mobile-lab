@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
+import 'data/services/shared_preferences_service.dart';
 import 'routing/router.dart';
 import 'ui/core/themes/theme.dart';
 
 /// Shared application bootstrap, invoked by every entrypoint
 /// (`main.dart`, `main_development.dart`, `main_staging.dart`).
-void bootstrap() {
+Future<void> bootstrap() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  final prefs = await SharedPreferences.getInstance();
   runApp(
-    const ProviderScope(
-      child: GithubMobileApp(),
+    ProviderScope(
+      overrides: [
+        sharedPreferencesServiceProvider.overrideWithValue(
+          SharedPreferencesService(prefs),
+        ),
+      ],
+      child: const GithubMobileApp(),
     ),
   );
 }
