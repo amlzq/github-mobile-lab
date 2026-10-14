@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "GithubMobile"
+rootProject.name = "GitHubMobile"
 include(":app")
