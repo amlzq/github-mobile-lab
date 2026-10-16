@@ -1,4 +1,4 @@
-package com.githubmobile
+package dev.zeaon.githubmobile
 
 import android.app.Application
 import com.facebook.react.PackageList

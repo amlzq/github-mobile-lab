@@ -1,4 +1,4 @@
-package com.githubmobile
+package dev.zeaon.githubmobile
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate
