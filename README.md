@@ -13,7 +13,7 @@ React Native
 |---------|---------|---------|---------|----|
 | App Shell | 🚧 | ⬜ | ⬜ | ⬜ |
 | Home | 🚧 | ⬜ | ⬜ | ⬜ |
-| Search | 🚧 | ⬜ | ⬜ | ⬜ |
+| Search | 🚧 | 🚧 | ⬜ | ⬜ |
 | Repository Detail | ⬜ | ⬜ | ⬜ | ⬜ |
 | Code Browser | ⬜ | ⬜ | ⬜ | ⬜ |
 | Issue | ⬜ | ⬜ | ⬜ | ⬜ |
